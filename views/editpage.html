@@ -1,0 +1,43 @@
+{{extend './layout.html'}}
+
+{{block 'title'}}图书管理{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/css/index.css">
+{{/block}}
+
+{{block 'content'}}
+<!-- 头部 -->
+<div class="jumbotron jump">
+  <div class="container">
+    <h2 class="text-center">玩转Node.js-之编辑图书</h2>
+  </div>
+</div>
+
+<div class="container">
+  <form action="/edit" method="POST">
+    <input type="hidden" value="{{data.id}}" name="id">
+    <div class="form-group">
+      <label for="exampleInputEmail1">书名</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{ data.name}}">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">作者</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="author" value="{{ data.author}}">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">分类</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="category" value="{{ data.category}}">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">描述</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="description" value="{{ data.description}}">
+    </div>
+
+    <button type="submit" class="btn btn-success">提交</button>
+
+  </form>
+</div>
+{{/block}}
+
+{{block 'script'}}{{/block}}

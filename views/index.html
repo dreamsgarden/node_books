@@ -11,7 +11,37 @@
 <div class="jumbotron jump">
   <div class="container">
     <h2 class="text-center">玩转Node.js-之图书管理</h2>
+    <a class="btn btn-default pull-right" href="/addpage">添加图书</a>
   </div>
+</div>
+
+<!-- 图书列表 -->
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>ID</th>
+      <th>书名</th>
+      <th>作者</th>
+      <th>分类</th>
+      <th>描述</th>
+      <th>操作</th>
+    </thead>
+    <tbody>
+      {{each data}}
+      <tr>
+        <td>{{$value.id}}</td>
+        <td>{{$value.name}}</td>
+        <td>{{$value.author}}</td>
+        <td>{{$value.category}}</td>
+        <td>{{$value.description}}</td>
+        <td>
+          <a href="/editpage?editid={{$value.id}}" class="btn btn-primary">修改</a>
+          <a href="/delete?deleteid={{$value.id}}" class="btn btn-danger">删除</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
 {{/block}}
 
