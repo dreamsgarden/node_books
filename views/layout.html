@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{block 'title'}}Document{{/block}}</title>
+  <link rel="stylesheet" href="/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+  {{block 'head'}}{{/block}}
+</head>
+
+<body>
+  {{block 'content'}}{{/block}}
+
+  <!-- 尾部 -->
+  <div class="jumbotron" style="margin:0;">
+    <div class="container">
+      <span> @2020 Node.js</span>
+    </div>
+  </div>
+
+  <script src="/lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+  {{block 'script'}}{{/block}}
+</body>
+
+</html>
