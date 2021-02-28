@@ -136,7 +136,7 @@ $(function () {
             if (msg.code !== 0) return toastr.error('删除失败！')
             // 删除成功 刷新数据
             getList()
-            toastr.success('删除失败！')
+            toastr.success('删除成功！')
           },
           error(err) {
             console.log(err)
