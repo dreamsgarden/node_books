@@ -11,11 +11,11 @@ $(function () {
       url: '/index',
       method: 'get',
       dataType: 'json',
-      success(res) {
-        console.log(res)
+      success(msg) {
+        console.log(msg)
 
         var html = template('tpl', {
-          data: res.data,
+          data: msg.data,
         })
         $('#tbody').html(html)
 
@@ -131,12 +131,12 @@ $(function () {
           url: '/delete?deleteid=' + id,
           method: 'get',
           dataType: 'json',
-          success(res) {
-            console.log(res)
+          success(msg) {
+            console.log(msg)
             if (msg.code !== 0) return toastr.error('删除失败！')
             // 删除成功 刷新数据
             getList()
-            toastr.error('删除失败！')
+            toastr.success('删除失败！')
           },
           error(err) {
             console.log(err)
