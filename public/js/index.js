@@ -8,14 +8,14 @@ $(function () {
   // 获取数据
   function getList() {
     $.ajax({
-      url: '/index',
+      url: '/book',
       method: 'get',
       dataType: 'json',
-      success(res) {
-        console.log(res)
+      success(msg) {
+        console.log(msg)
 
         var html = template('tpl', {
-          data: res.data,
+          data: msg.data,
         })
         $('#tbody').html(html)
 
@@ -39,7 +39,7 @@ $(function () {
         console.log(data)
 
         $.ajax({
-          url: '/add',
+          url: '/book',
           method: 'post',
           dataType: 'json',
           data: data,
@@ -73,7 +73,7 @@ $(function () {
       console.log(id)
 
       $.ajax({
-        url: '/editPage?editid=' + id,
+        url: '/book/' + id,
         method: 'get',
         dataType: 'json',
         success(msg) {
@@ -93,8 +93,8 @@ $(function () {
               console.log(data)
 
               $.ajax({
-                url: '/edit',
-                method: 'post',
+                url: '/book',
+                method: 'put',
                 dataType: 'json',
                 data: data,
                 success(msg) {
@@ -128,15 +128,15 @@ $(function () {
 
       if (flag) {
         $.ajax({
-          url: '/delete?deleteid=' + id,
-          method: 'get',
+          url: '/book/' + id,
+          method: 'delete',
           dataType: 'json',
-          success(res) {
-            console.log(res)
+          success(msg) {
+            console.log(msg)
             if (msg.code !== 0) return toastr.error('删除失败！')
             // 删除成功 刷新数据
             getList()
-            toastr.error('删除失败！')
+            toastr.success('删除成功！')
           },
           error(err) {
             console.log(err)

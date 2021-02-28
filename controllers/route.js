@@ -10,18 +10,19 @@ module.exports = (app) => {
       _.get('/', controller.index())
 
       // 获取图书
-      _.get('/index', controller.index())
+      _.get('/book', controller.index())
 
       // 添加图书
-      _.get('/addpage', controller.addpage())
-      _.post('/add', controller.add())
+      _.post('/book', controller.add())
+
+      // 根据 id 获取图书
+      _.get('/book/:id', controller.editpage())
 
       // 修改图书
-      _.get('/editpage', controller.editpage())
-      _.post('/edit', controller.edit())
+      _.put('/book', controller.edit())
 
       // 删除图书
-      _.get('/delete', controller.delete())
+      _.delete('/book/:id', controller.delete())
     })
   )
 }

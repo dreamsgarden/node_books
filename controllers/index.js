@@ -43,7 +43,7 @@ class IndexController {
   // 修改图书页
   editpage() {
     return async function (ctx) {
-      let id = ctx.request.query.editid
+      let id = ctx.params.id
 
       try {
         let res = await bookModel.findById(id)
@@ -73,7 +73,7 @@ class IndexController {
   // 删除图书
   delete() {
     return async function (ctx) {
-      let id = ctx.query.deleteid
+      let id = ctx.params.id
 
       try {
         let res = await bookModel.deleteById(id)
