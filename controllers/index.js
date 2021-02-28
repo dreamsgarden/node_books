@@ -11,14 +11,7 @@ class IndexController {
       try {
         let res = await bookModel.find()
         // console.log(res)
-
-        if (res.code == 0) {
-          ctx.render('index', {
-            data: res.data,
-          })
-        } else {
-          ctx.body = '获取失败'
-        }
+        ctx.body = res
       } catch (err) {
         console.log(err)
       }
@@ -40,13 +33,7 @@ class IndexController {
       try {
         let res = await bookModel.add(postData)
         console.log(res)
-
-        if (res.code == 0) {
-          // 跳转首页
-          ctx.redirect('/index')
-        } else {
-          ctx.body = '添加失败'
-        }
+        ctx.body = res
       } catch (err) {
         console.log(err)
       }
@@ -61,14 +48,7 @@ class IndexController {
       try {
         let res = await bookModel.findById(id)
         console.log(res)
-
-        if (res.code == 0) {
-          ctx.render('editpage', {
-            data: res.data,
-          })
-        } else {
-          ctx.body = '获取失败'
-        }
+        ctx.body = res
       } catch (err) {
         console.log(err)
       }
@@ -83,13 +63,7 @@ class IndexController {
       try {
         let res = await bookModel.update(postData)
         console.log(res)
-
-        if (res.code == 0) {
-          // 跳转首页
-          ctx.redirect('/index')
-        } else {
-          ctx.body = '编辑失败'
-        }
+        ctx.body = res
       } catch (err) {
         console.log(err)
       }
@@ -104,13 +78,7 @@ class IndexController {
       try {
         let res = await bookModel.deleteById(id)
         console.log(res)
-
-        if (res.code == 0) {
-          // 跳转首页
-          ctx.redirect('/index')
-        } else {
-          ctx.body = '删除失败'
-        }
+        ctx.body = res
       } catch (err) {
         console.log(err)
       }
